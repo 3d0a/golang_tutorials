@@ -11,7 +11,6 @@ func MakeNegative(x int) int {
 		return x
 	}
 	return -1 * x
-    
 }
 
 func main() {
