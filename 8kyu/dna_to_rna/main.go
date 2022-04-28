@@ -1,15 +1,22 @@
 package main
 import ( 
 	"fmt"
-	"reflect"
+	"strings"
 )
 
-func DNAtoRNA(dna string) {
+func DNAtoRNA(dna string) string{
+	array := make([]string, 0)
 	for i, char := range dna {
-        fmt.Println(reflect.TypeOf(char), reflect.TypeOf(i), string(char), reflect.TypeOf(string(char)))
+		if string(char) == "T" {
+			array = append(array, "U")
+		} else {
+			array = append(array, string(char))
+		}
+        _ = i
 	}
+	return strings.Join(array, "")
 }
 
 func main() {
-    DNAtoRNA("hello")
+    fmt.Println(DNAtoRNA("helloT"))
 }
