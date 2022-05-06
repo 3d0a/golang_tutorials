@@ -18,10 +18,14 @@ func OrderedCount(text string) []Tuple {
 	  mapCount[char] += 1
 	}
   }
-  for key, value := range mapCount {
-    var tupple Tuple
-	tupple.Char, tupple.Count = key, value
-	finalArr = append(finalArr, tupple)
+  for _, char := range []rune(text) {
+	if _, ok := mapCount[char]; !ok {
+	  continue
+	}
+	var tuple Tuple
+    tuple.Char, tuple.Count = char, mapCount[char]
+	finalArr = append(finalArr, tuple)
+	delete(mapCount, char)
   }
   return finalArr
 }
