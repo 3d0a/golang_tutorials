@@ -1,0 +1,7 @@
+FROM golang:latest
+WORKDIR /source
+ENV GO111MODULE=off
+COPY . .
+RUN go build 
+EXPOSE 8080
+ENTRYPOINT ./source
