@@ -1,4 +1,5 @@
 package main
+
 import (
 	"fmt"
 	"strconv"
@@ -11,7 +12,7 @@ func isPalindrome(x int) bool {
 	for _, char := range firstString {
 		reverseString = string(char) + reverseString
 	}
-	fmt.Println(firstString, reverseString)	
+	fmt.Println(firstString, reverseString)
 	return strings.Compare(firstString, reverseString) == 0
 }
 

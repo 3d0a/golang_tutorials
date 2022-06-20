@@ -1,4 +1,5 @@
 package main
+
 import (
 	"fmt"
 	"sort"
@@ -10,8 +11,10 @@ func maxSubArray(nums []int) int {
 	elemsLessZero := true
 
 	for _, num := range nums {
-		if num >= 0 {elemsLessZero = false}
-		if currentSum + num > 0 {
+		if num >= 0 {
+			elemsLessZero = false
+		}
+		if currentSum+num > 0 {
 			currentSum += num
 		} else {
 			currentSum = 0
@@ -22,11 +25,11 @@ func maxSubArray(nums []int) int {
 	}
 	if elemsLessZero {
 		sort.Ints(nums)
-		return nums[len(nums) - 1]
+		return nums[len(nums)-1]
 	}
 	return maxSum
 }
 
 func main() {
-	fmt.Println(maxSubArray([]int{-2,-3}))
+	fmt.Println(maxSubArray([]int{-2, -3}))
 }
